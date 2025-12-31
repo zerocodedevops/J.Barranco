@@ -1,0 +1,164 @@
+/* Estilos personalizados para react-big-calendar con brand colors J-Barranco */
+
+.calendar-container {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Toolbar (barra superior) */
+.rbc-toolbar {
+  padding: 15px 0;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #003366;
+}
+
+.rbc-toolbar button {
+  color: #003366;
+  border: 1px solid #003366;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.rbc-toolbar button:hover {
+  background-color: #003366;
+  color: white;
+}
+
+.rbc-toolbar button.rbc-active {
+  background-color: #003366;
+  color: white;
+}
+
+.rbc-toolbar button.rbc-active:hover {
+  background-color: #002244;
+}
+
+/* Header de mes */
+.rbc-header {
+  padding: 10px 5px;
+  font-weight: 600;
+  color: #003366;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+/* Días del mes */
+.rbc-day-bg {
+  background-color: white;
+}
+
+.rbc-off-range-bg {
+  background-color: #f8f9fa;
+}
+
+.rbc-today {
+  background-color: #e6f2ff !important;
+}
+
+/* Eventos */
+.rbc-event {
+  padding: 4px 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.rbc-event:hover {
+  opacity: 1 !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.rbc-event.rbc-selected {
+  background-color: #002244 !important;
+}
+
+/* Slots de tiempo */
+.rbc-time-slot {
+  border-top: 1px solid #e5e7eb;
+}
+
+.rbc-current-time-indicator {
+  background-color: #00a86b;
+  height: 2px;
+}
+
+/* Botón "Ver más" */
+.rbc-show-more {
+  color: #003366;
+  font-weight: 600;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.rbc-show-more:hover {
+  background-color: #e6f2ff;
+}
+
+/* Vista de agenda */
+.rbc-agenda-view {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.rbc-agenda-date-cell,
+.rbc-agenda-time-cell {
+  padding: 12px;
+  color: #003366;
+  font-weight: 600;
+}
+
+.rbc-agenda-event-cell {
+  padding: 12px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .calendar-container {
+    padding: 10px;
+  }
+
+  .rbc-toolbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .rbc-toolbar-label {
+    margin: 10px 0;
+  }
+}
+
+/* --- MODIFICACIÓN PARA ELIMINAR VISTA HORARIA (v2) --- */
+.rbc-time-content, .rbc-time-gutter {
+  display: none !important;
+}
+
+.rbc-time-view {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.rbc-time-view .rbc-header {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.rbc-label {
+  display: none !important;
+}
+
+/* Eventos grandes (Doble fila visual) */
+.rbc-event {
+    min-height: 50px !important;
+    font-size: 0.95rem !important;
+    display: flex !important;
+    align-items: center !important;
+    margin-bottom: 6px !important;
+    padding: 8px !important;
+    line-height: 1.2 !important;
+}
+
+.rbc-row-segment {
+    padding: 4px 2px !important;
+}

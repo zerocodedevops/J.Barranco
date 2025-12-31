@@ -1,0 +1,95 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Debug Environment > IncomePanel renders 1`] = `
+<div>
+  <div
+    class="p-4"
+  >
+    <div
+      class="flex justify-between items-center mb-4"
+    >
+      <h3
+        class="text-lg font-medium text-gray-900"
+      >
+        Ingresos Mensuales Realizados
+      </h3>
+      <div
+        class="text-right"
+      >
+        <p
+          class="text-sm text-gray-500"
+        >
+          Total Ingresos
+        </p>
+        <p
+          class="text-xl font-bold text-green-600"
+        >
+          1000
+          €
+        </p>
+      </div>
+    </div>
+    <div
+      class="overflow-x-auto"
+    >
+      <table
+        class="min-w-full divide-y divide-gray-200"
+      >
+        <thead
+          class="bg-gray-50"
+        >
+          <tr>
+            <th
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Fecha
+            </th>
+            <th
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Cliente / Origen
+            </th>
+            <th
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Descripción
+            </th>
+            <th
+              class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Importe
+            </th>
+          </tr>
+        </thead>
+        <tbody
+          class="bg-white divide-y divide-gray-200"
+        >
+          <tr>
+            <td
+              class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+            >
+              1/12/2023
+            </td>
+            <td
+              class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
+            >
+              Cliente Test
+            </td>
+            <td
+              class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+            >
+              Servicio de Limpieza
+            </td>
+            <td
+              class="px-6 py-4 whitespace-nowrap text-sm text-right font-medium text-green-600"
+            >
+              1000
+              €
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+`;

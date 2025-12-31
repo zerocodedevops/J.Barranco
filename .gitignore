@@ -1,0 +1,29 @@
+# System Files
+.DS_Store
+Thumbs.db
+
+# Secrets
+.env
+.env.local
+firebase-service-account.json
+firebase.json
+
+# Internal Project Files
+TESTING_CHECKLIST.md
+TODO.md
+
+# Private Data
+Facturas/
+Diseños/
+Varios .json/
+Contratos/
+
+# Build Artifacts & Cache
+node_modules/
+dist/
+.firebase/
+playwright-report/
+test-results/
+eslint-report.json
+phase2_errors.txt
+supabase/.temp/

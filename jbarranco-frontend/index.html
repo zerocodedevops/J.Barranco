@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="theme-color" content="#2563eb" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Cache Control for Index -->
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <!-- Content Security Policy - Updated for Google Analytics, Sentry, reCAPTCHA, Upstash -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; 
+               script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://*.google.com https://www.gstatic.com https://*.firebase.com https://*.firebaseio.com https://j-barranco.firebaseapp.com https://apis.google.com; 
+               script-src-elem 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://*.google.com https://www.gstatic.com; 
+               connect-src 'self' https://api.emailjs.com https://*.google-analytics.com https://*.analytics.google.com https://region1.google-analytics.com https://region1.analytics.google.com https://*.googletagmanager.com https://*.firebaseio.com https://*.googleapis.com https://*.google.com https://*.firebase.com https://j-barranco.firebaseapp.com https://firebaseinstallations.googleapis.com wss://*.firebaseio.com https://*.upstash.io https://*.sentry.io https://*.ingest.de.sentry.io https://o4510474448732160.ingest.de.sentry.io https://*.supabase.co; 
+               worker-src 'self' blob:; 
+               img-src 'self' data: https: blob:; 
+               style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; 
+               font-src 'self' https://fonts.gstatic.com data:; 
+               frame-src 'self' https://*.google.com https://www.recaptcha.net https://j-barranco.firebaseapp.com https://*.supabase.co;"
+    >
+
+    <!-- Preconnect to Google Fonts for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Preload critical fonts -->
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    >
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    >
+
+    <!-- Google Analytics 4 -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-9KYN234XJW"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-9KYN234XJW");
+    </script>
+
+    <!-- SEO Meta Tags -->
+    <title>
+      J.Barranco - Limpieza de Comunidades y Oficinas en Madrid | Servicios
+      Profesionales
+    </title>
+    <meta
+      name="description"
+      content="Servicios profesionales de limpieza para comunidades de vecinos y oficinas en Madrid. Limpieza periódica, obras, cristales y más. Presupuesto sin compromiso. ☎️ +34 679 95 81 19"
+    />
+    <meta
+      name="keywords"
+      content="limpieza comunidades Madrid, limpieza oficinas Madrid, empresa limpieza, servicios limpieza, limpieza profesional, limpieza cristales, limpieza obras, J.Barranco"
+    />
+    <meta name="author" content="J.Barranco Limpieza" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://j-barranco.web.app" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://j-barranco.web.app" />
+    <meta
+      property="og:title"
+      content="J.Barranco - Limpieza Profesional de Comunidades y Oficinas en Madrid"
+    />
+    <meta
+      property="og:description"
+      content="Empresa de limpieza profesional en Madrid. Comunidades, oficinas, cristales y obras. Presupuesto gratis sin compromiso. ☎️ +34 679 95 81 19"
+    />
+    <meta
+      property="og:image"
+      content="https://j-barranco.web.app/logo-light.png"
+    />
+    <meta
+      property="og:image:secure_url"
+      content="https://j-barranco.web.app/logo-light.png"
+    />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+    <meta property="og:image:alt" content="J.Barranco Limpieza - Logo" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="J.Barranco Limpieza" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://j-barranco.web.app" />
+    <meta
+      name="twitter:title"
+      content="J.Barranco - Limpieza Profesional en Madrid"
+    />
+    <meta
+      name="twitter:description"
+      content="Servicios de limpieza para comunidades y oficinas en Madrid"
+    />
+    <meta
+      name="twitter:image"
+      content="https://j-barranco.web.app/logo-light.png"
+    />
+
+    <!-- Local Business Schema.org - Enhanced -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "J.Barranco Limpieza",
+        "image": "https://j-barranco.web.app/logo-light.png",
+        "logo": "https://j-barranco.web.app/logo-light.png",
+        "description": "Empresa de limpieza profesional en Madrid especializada en comunidades de vecinos, oficinas, cristales y limpieza post-obra. Servicio de calidad con presupuesto sin compromiso.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Calle Calahorra 34",
+          "addressLocality": "Madrid",
+          "addressRegion": "Comunidad de Madrid",
+          "postalCode": "28032",
+          "addressCountry": "ES"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "40.4168",
+          "longitude": "-3.7038"
+        },
+        "telephone": "+34679958119",
+        "email": "jbarrancolimpieza@gmail.com",
+        "url": "https://j-barranco.web.app",
+        "priceRange": "€€",
+        "areaServed": {
+          "@type": "City",
+          "name": "Madrid"
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Servicios de Limpieza",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Limpieza de Comunidades",
+                "description": "Limpieza periódica de portales, escaleras, ascensores y zonas comunes"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Limpieza de Oficinas",
+                "description": "Limpieza profesional de oficinas y espacios corporativos"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Limpieza de Cristales",
+                "description": "Limpieza profesional de cristales interiores y exteriores"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Limpieza de Obras",
+                "description": "Limpieza post-construcción y reformas"
+              }
+            }
+          ]
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday"
+            ],
+            "opens": "08:00",
+            "closes": "18:00"
+          }
+        ],
+        "sameAs": [
+          "https://j-barranco.web.app"
+        ]
+      }
+    </script>
+
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#003366" />
+    <link rel="apple-touch-icon" href="/icon-192x192.png" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="apple-mobile-web-app-title" content="J.Barranco" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

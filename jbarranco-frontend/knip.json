@@ -1,0 +1,25 @@
+{
+  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "entry": ["src/main.tsx", "src/vite-env.d.ts"],
+  "project": ["src/**/*.{ts,tsx}"],
+  "ignore": [
+    "android/**",
+    "android/app/src/main/assets/public/**",
+    "dist/**",
+    "node_modules/**",
+    "public/**",
+    ".firebase/**",
+    "coverage/**"
+  ],
+  "ignoreExportsUsedInFile": true,
+  "ignoreDependencies": [
+    "eslint-config-prettier",
+    "eslint-plugin-jsx-a11y",
+    "eslint-plugin-react",
+    "eslint-plugin-react-hooks",
+    "eslint-plugin-react-refresh",
+    "eslint-plugin-sonarjs",
+    "autoprefixer",
+    "postcss"
+  ]
+}

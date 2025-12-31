@@ -1,0 +1,62 @@
+name: Build Android APK (Debug)
+
+on:
+  push:
+    branches: [ master, main ]
+  pull_request:
+    branches: [ master, main ]
+
+jobs:
+  build-android:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup Java
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '21'
+
+    - name: Java Version Check
+      run: java -version
+
+    - name: Setup Node
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+
+    - name: Install Dependencies
+      run: npm ci
+
+    - name: Build Web Assets
+      env:
+        VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+        VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+      run: npm run build
+
+    - name: Create dummy google-services.json
+      run: |
+        cd android/app
+        echo '{"project_info":{"project_number":"000000000000","project_id":"mock-project-id","storage_bucket":"mock-bucket"},"client":[{"client_info":{"mobilesdk_app_id":"1:000000000000:android:000000000000","android_client_info":{"package_name":"com.example.app_J.Barranco"}},"oauth_client":[],"api_key":[{"current_key":"mock-api-key"}]}]}' > google-services.json
+
+    - name: Sync Capacitor
+      run: npx cap sync android
+
+    - name: Build APK (Debug)
+      run: |
+        cd android
+        # Explicitly set Java Home for Gradle
+        echo "org.gradle.java.home=$JAVA_HOME" >> gradle.properties
+        # Fix potential CRLF line endings from Windows git push
+        sed -i 's/\r$//' gradlew
+        chmod +x gradlew
+        ./gradlew clean assembleDebug --stacktrace
+
+    - name: Upload APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: app-debug.apk
+        path: android/app/build/outputs/apk/debug/app-debug.apk

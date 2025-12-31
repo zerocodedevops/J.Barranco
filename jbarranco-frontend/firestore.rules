@@ -1,0 +1,133 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Helper para verificar si es el dueño del recurso
+    function isOwner(userId) {
+      return request.auth != null && request.auth.uid == userId;
+    }
+
+    // Helper para verificar si es admin (basado en documento de usuario)
+    function isAdmin() {
+      return request.auth != null && 
+        exists(/databases/$(database)/documents/usuarios/$(request.auth.uid)) &&
+        get(/databases/$(database)/documents/usuarios/$(request.auth.uid)).data.rol == 'admin';
+    }
+    
+    // Helper para verificar si es empleado (verifica si está en usuarios con rol empleado O si existe en colección empleados)
+    function isEmployee() {
+      return request.auth != null && (
+        (exists(/databases/$(database)/documents/usuarios/$(request.auth.uid)) && get(/databases/$(database)/documents/usuarios/$(request.auth.uid)).data.rol == 'empleado') ||
+        exists(/databases/$(database)/documents/empleados/$(request.auth.uid))
+      );
+    }
+
+    // Colección de usuarios (roles)
+    match /usuarios/{userId} {
+      allow read: if isOwner(userId) || isAdmin() || isEmployee();
+      allow create, delete: if isAdmin();
+      allow update: if isAdmin() || (
+        isOwner(userId) && 
+        !request.resource.data.diff(resource.data).affectedKeys().hasAny(['rol', 'activo'])
+      );
+    }
+
+    // Clientes
+    match /clientes/{clientId} {
+      allow read: if isAdmin() || isOwner(clientId) || isEmployee() || (request.auth != null && resource != null && resource.data.email == request.auth.token.email);
+      allow write: if isAdmin();
+    }
+
+    // Empleados
+    match /empleados/{employeeId} {
+      allow read: if isAdmin() || isOwner(employeeId) || isEmployee() || (request.auth != null && resource != null && resource.data.email == request.auth.token.email);
+      allow write: if isAdmin();
+    }
+    
+    // Documentos Subidos
+    match /documentosSubidos/{docId} {
+      allow read: if isAdmin() || (request.auth != null && resource.data.clienteId == request.auth.uid);
+      allow create: if isAdmin();
+      allow update, delete: if isAdmin();
+    }
+    
+    // Rutas (el ID del documento es el ID del empleado)
+    match /rutas/{employeeId} {
+      allow read: if isAdmin() || isOwner(employeeId);
+      allow write: if isAdmin();
+    }
+
+    // Inventario General
+    match /inventario/{itemId} {
+      allow read: if request.auth != null;
+      allow write: if isAdmin();
+    }
+
+    // Stock Clientes
+    match /stock_clientes/{itemId} {
+      allow read: if isAdmin() || isEmployee();
+      allow write: if isAdmin() || isEmployee();
+    }
+
+    // Solicitudes de Material
+    match /solicitudes_material/{solicitudId} {
+      allow read: if isAdmin() || (request.auth != null && resource.data.empleadoId == request.auth.uid);
+      allow create: if request.auth != null;
+      allow update, delete: if isAdmin();
+    }
+
+    // Ratings (Valoraciones)
+    match /ratings/{ratingId} {
+      allow read: if isAdmin() || 
+                  (request.auth != null && resource.data.clientId == request.auth.uid) ||
+                  (request.auth != null && resource.data.employeeId == request.auth.uid);
+      allow create: if request.auth != null && request.resource.data.clientId == request.auth.uid;
+      allow update, delete: if isAdmin();
+    }
+
+    // Trabajos
+    match /trabajos/{trabajoId} {
+      allow read: if isAdmin() || 
+                  (request.auth != null && resource.data.clienteId == request.auth.uid) ||
+                  (request.auth != null && resource.data.empleadoId == request.auth.uid);
+      allow create: if isAdmin() || (request.auth != null && request.resource.data.clienteId == request.auth.uid);
+      allow update: if isAdmin() || (
+        isEmployee() && resource.data.empleadoId == request.auth.uid
+        // Opcional: restringir campos si fuera necesario, e.g. .hasOnly(['estado', 'fechaFin', ...])
+        // Por ahora confiamos en que el empleado solo edita lo suyo
+      );
+      allow delete: if isAdmin();
+    }
+
+    // Extras (Trabajos Extra y Solicitudes)
+    match /extras/{extraId} {
+       allow read: if isAdmin() || (request.auth != null && resource.data.clienteId == request.auth.uid);
+       allow create: if request.auth != null && request.resource.data.clienteId == request.auth.uid;
+       allow update: if isAdmin() || (request.auth != null && resource.data.clienteId == request.auth.uid);
+       allow delete: if isAdmin() || (request.auth != null && resource.data.clienteId == request.auth.uid);
+    }
+
+    // Tickets (Incidencias y Quejas)
+    match /tickets/{ticketId} {
+       allow read: if isAdmin() || (request.auth != null && resource.data.clienteId == request.auth.uid);
+       allow create: if request.auth != null && request.resource.data.clienteId == request.auth.uid;
+       allow update: if isAdmin() || (request.auth != null && resource.data.clienteId == request.auth.uid); // Allow client to add messages (via arrayUnion) - finer grain control could be added but this is sufficient for now.
+    }
+
+    // CMS: Configuración y Contenido Web (Público Lectura)
+    match /configuracion/{docId} {
+        allow read: if true;
+        allow write: if isAdmin();
+    }
+    match /web_content/{docId} {
+        allow read: if true;
+        allow write: if isAdmin();
+    }
+
+    // Default: Solo admin puede leer/escribir cualquier otra cosa no explícita
+    match /{document=**} {
+      allow read, write: if isAdmin();
+    }
+  }
+}
+

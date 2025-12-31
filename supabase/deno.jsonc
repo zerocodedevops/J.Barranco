@@ -1,0 +1,37 @@
+{
+    "compilerOptions": {
+        "lib": [
+            "deno.window"
+        ],
+        "types": [
+            "https://deno.land/x/types/index.d.ts"
+        ]
+    },
+    "lint": {
+        "files": {
+            "include": [
+                "functions/"
+            ]
+        },
+        "rules": {
+            "tags": [
+                "recommended"
+            ]
+        }
+    },
+    "fmt": {
+        "files": {
+            "include": [
+                "functions/"
+            ]
+        },
+        "options": {
+            "useTabs": false,
+            "lineWidth": 80,
+            "indentWidth": 2,
+            "semiColons": false,
+            "singleQuote": true,
+            "proseWrap": "preserve"
+        }
+    }
+}

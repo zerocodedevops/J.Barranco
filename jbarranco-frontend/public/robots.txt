@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://j-barranco.web.app/sitemap.xml
+
+# Disallow admin, client, employee areas
+Disallow: /admin
+Disallow: /client
+Disallow: /employee
+Disallow: /login
+
+# Allow public pages and blog
+Allow: /
+Allow: /about
+Allow: /services
+Allow: /contact
+Allow: /faq
+Allow: /blog

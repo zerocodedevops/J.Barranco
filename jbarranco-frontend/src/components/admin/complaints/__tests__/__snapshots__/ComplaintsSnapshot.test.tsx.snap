@@ -1,0 +1,283 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ComplaintsSnapshot > ComplaintsList renders correctly (Main View) 1`] = `
+<div>
+  <div>
+    <div
+      class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4"
+    >
+      <div>
+        <h2
+          class="text-2xl font-bold text-gray-900"
+        >
+          Gestión de Tickets e Incidencias
+        </h2>
+      </div>
+      <div
+        class="flex items-center gap-2"
+      >
+        <button
+          class="px-4 py-2 text-sm bg-white border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 flex items-center gap-2"
+        >
+          <span>
+            ↻
+          </span>
+           Actualizar
+        </button>
+      </div>
+    </div>
+    <div
+      data-testid="complaints-filter"
+    >
+      Filter
+    </div>
+    <div
+      class="bg-white shadow overflow-hidden sm:rounded-lg border border-gray-200"
+    >
+      <div
+        class="overflow-x-auto"
+      >
+        <table
+          class="min-w-full divide-y divide-gray-200"
+        >
+          <thead
+            class="bg-gray-50"
+          >
+            <tr>
+              <th
+                class="px-6 py-3 w-10 bg-gray-50"
+              >
+                <input
+                  class="h-4 w-4 rounded border-gray-300 text-brand-blue focus:ring-brand-blue cursor-pointer"
+                  type="checkbox"
+                />
+              </th>
+              <th
+                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100 select-none w-32"
+              >
+                <div
+                  class="flex items-center"
+                >
+                  Fecha
+                  <span
+                    class="ml-1 text-brand-blue"
+                  >
+                    ↓
+                  </span>
+                </div>
+              </th>
+              <th
+                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100 select-none w-32"
+              >
+                <div
+                  class="flex items-center"
+                >
+                  Estado
+                  <span
+                    class="ml-1 text-gray-300"
+                  >
+                    ↕
+                  </span>
+                </div>
+              </th>
+              <th
+                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100 select-none "
+              >
+                <div
+                  class="flex items-center"
+                >
+                  Cliente
+                  <span
+                    class="ml-1 text-gray-300"
+                  >
+                    ↕
+                  </span>
+                </div>
+              </th>
+              <th
+                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100 select-none "
+              >
+                <div
+                  class="flex items-center"
+                >
+                  Asunto
+                  <span
+                    class="ml-1 text-gray-300"
+                  >
+                    ↕
+                  </span>
+                </div>
+              </th>
+              <th
+                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100 select-none w-24"
+              >
+                <div
+                  class="flex items-center"
+                >
+                  Tipo
+                  <span
+                    class="ml-1 text-gray-300"
+                  >
+                    ↕
+                  </span>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody
+            class="bg-white divide-y divide-gray-200"
+          >
+            <tr
+              data-testid="complaints-list-row"
+            >
+              <td>
+                Row
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ComplaintsSnapshot > ComplaintsTable renders correctly with data 1`] = `
+<div>
+  <div
+    class="overflow-x-auto"
+  >
+    <table
+      class="min-w-full divide-y divide-gray-200"
+    >
+      <thead
+        class="bg-gray-50"
+      >
+        <tr>
+          <th
+            class="px-6 py-3 w-10 bg-gray-50"
+          >
+            <input
+              class="h-4 w-4 rounded border-gray-300 text-brand-blue focus:ring-brand-blue cursor-pointer"
+              type="checkbox"
+            />
+          </th>
+          <th
+            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100 select-none w-32"
+          >
+            <div
+              class="flex items-center"
+            >
+              Fecha
+              <span
+                class="ml-1 text-brand-blue"
+              >
+                ↓
+              </span>
+            </div>
+          </th>
+          <th
+            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100 select-none w-32"
+          >
+            <div
+              class="flex items-center"
+            >
+              Estado
+              <span
+                class="ml-1 text-gray-300"
+              >
+                ↕
+              </span>
+            </div>
+          </th>
+          <th
+            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100 select-none "
+          >
+            <div
+              class="flex items-center"
+            >
+              Cliente
+              <span
+                class="ml-1 text-gray-300"
+              >
+                ↕
+              </span>
+            </div>
+          </th>
+          <th
+            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100 select-none "
+          >
+            <div
+              class="flex items-center"
+            >
+              Asunto
+              <span
+                class="ml-1 text-gray-300"
+              >
+                ↕
+              </span>
+            </div>
+          </th>
+          <th
+            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100 select-none w-24"
+          >
+            <div
+              class="flex items-center"
+            >
+              Tipo
+              <span
+                class="ml-1 text-gray-300"
+              >
+                ↕
+              </span>
+            </div>
+          </th>
+        </tr>
+      </thead>
+      <tbody
+        class="bg-white divide-y divide-gray-200"
+      >
+        <tr
+          data-testid="complaints-list-row"
+        >
+          <td>
+            Row
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
+exports[`ComplaintsSnapshot > ComplaintsTable renders empty state correctly 1`] = `
+<div>
+  <div
+    class="p-12 text-center text-gray-500"
+  >
+    <p
+      class="text-lg font-medium text-gray-900 mb-2"
+    >
+      No se encontraron tickets
+    </p>
+    <p
+      class="text-sm"
+    >
+      Intenta cambiar los filtros de búsqueda.
+    </p>
+  </div>
+</div>
+`;
+
+exports[`ComplaintsSnapshot > ComplaintsTable renders loading state correctly 1`] = `
+<div>
+  <div
+    class="p-12 text-center text-gray-500"
+  >
+    <div
+      class="animate-spin rounded-full h-8 w-8 border-b-2 border-brand-blue mx-auto mb-2"
+    />
+    Cargando centro de control...
+  </div>
+</div>
+`;

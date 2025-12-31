@@ -1,0 +1,15 @@
+# Build artifacts
+lib/
+tsconfig.tsbuildinfo
+
+# Dependencies
+node_modules/
+
+# Logs
+firebase-debug.log*
+firestore-debug.log*
+ui-debug.log*
+
+# Env
+.env
+.env.local

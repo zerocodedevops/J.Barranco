@@ -1,0 +1,6 @@
+dist
+build
+android
+node_modules
+coverage
+.firebase

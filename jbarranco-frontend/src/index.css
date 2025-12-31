@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilos globales personalizados si los necesitas en el futuro */
+
+/* Skip to main content link - accessibility */
+.skip-to-main {
+  position: absolute;
+  left: -9999px;
+  z-index: 999;
+  padding: 1rem;
+  background-color: #2563eb;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.skip-to-main:focus {
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+}
+
+/* Shimmer animation for skeleton loaders */
+@keyframes shimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 1.2s ease-in-out infinite;
+  background: linear-gradient(to right, #f0f0f0 8%, #e0e0e0 18%, #f0f0f0 33%);
+  background-size: 800px 104px;
+}
+
+/* Focus visible styles for better keyboard navigation */
+*:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+/* Subtle Animations - Fade In */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out;
+}
+
+/* Subtle Animations - Slide Up */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+
+/* Subtle hover effects */
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Smooth transitions for common properties */
+* {
+  transition-property: color, background-color, border-color, opacity;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+
+/* Print Styles */
+@media print {
+  /* Hide non-essential elements */
+  header,
+  nav,
+  .sticky,
+  button,
+  .no-print,
+  [role="navigation"],
+  [aria-label="Breadcrumb"] {
+    display: none !important;
+  }
+
+  /* Reset page margins */
+  @page {
+    margin: 2cm;
+  }
+
+  /* Ensure content prints well */
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+    color: #000;
+    background: #fff;
+  }
+
+  /* Avoid page breaks inside elements */
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100%;
+    page-break-inside: avoid;
+  }
+
+  /* Show links for print */
+  a[href]:after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666;
+  }
+
+  /* Don't show links for internal anchors */
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: "";
+  }
+
+  /* Optimize table printing */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+
+  /* Show URLs for email and phone links */
+  a[href^="mailto:"]:after,
+  a[href^="tel:"]:after {
+    content: " (" attr(href) ")";
+  }
+
+  /* Prevent widows and orphans */
+  p, li {
+    orphans: 3;
+    widows: 3;
+  }
+}
+
+/* reCAPTCHA Badge - Hidden (legal notice shown in footer/forms) */
+.grecaptcha-badge {
+  visibility: hidden !important;
+}
